@@ -21,6 +21,10 @@ public class LinkedListMain {
 		System.out.println("\nAfter deleting 1st element");
 		mylist.deleteFirst();
 		mylist.print();
+		
+		//after deleting last element
+		System.out.println("\nAfter deleting last element");
+		mylist.deleteLast();
+		mylist.print();
 	}
-
 }
