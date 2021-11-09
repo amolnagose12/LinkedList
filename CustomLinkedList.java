@@ -2,8 +2,7 @@ package com.bridgelabz.linkedlist;
 
 public class CustomLinkedList {
 
-	public Node head = null;
-	public Node tail = null;
+	Node head;
 	
 	// class for operations of Linked List
 	class Node {
@@ -14,23 +13,69 @@ public class CustomLinkedList {
 		public Node(int data) {
 			super();
 			this.data = data;
-			this.next = next;
+			next = null;
 		}	
 	}
 	
 	//method for adding the data to linked list
 	public void add(int data) {
-		Node mynode = new Node(data);
-		mynode.next = head;
-		head = mynode;
+		
+		Node toAdd = new Node(data);
+		
+		if(isEmpty()) {
+			head = toAdd;
+			return;
+		}
+		else {
+			Node temp = head;
+			while(temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = toAdd;
+		}
 	}
 	
 	//method for printing the linked list data
-	public void print(Node head){
+	public void print(){
 		
-		while(head != null){
-			System.out.print(head.data + " ");
-			head = head.next;
+		if(isEmpty()) {
+			System.out.println("Linked list is Empty");
+			return;
+		}
+		else {
+			Node temp = head;
+			while(temp != null) {
+				System.out.print(temp.data + " ");
+				temp = temp.next;
+			}
+		}
+	}
+	
+	// method for checking head is null
+	boolean isEmpty() {
+		if(head == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void insert(int pos, int data) {
+		
+		Node toInsert = new Node(data);
+	
+		if(isEmpty()) {
+			head = toInsert;
+		}
+		else {
+			Node temp = head;
+		
+			for(int i=0; i<pos-1; i++) {
+				temp = temp.next; 
+			}
+			toInsert.next = temp.next;
+			temp.next = toInsert;
 		}
 	}
 }
