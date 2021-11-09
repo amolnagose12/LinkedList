@@ -53,6 +53,7 @@ public class CustomLinkedList {
 	
 	// method for checking head is null
 	boolean isEmpty() {
+		
 		if(head == null) {
 			return true;
 		}
@@ -61,6 +62,7 @@ public class CustomLinkedList {
 		}
 	}
 	
+	//method for inserting at specific position
 	public void insert(int pos, int data) {
 		
 		Node toInsert = new Node(data);
@@ -78,4 +80,24 @@ public class CustomLinkedList {
 			temp.next = toInsert;
 		}
 	}
+	
+	public void deleteFirst() {
+		
+		if(isEmpty()) {
+			System.out.println("Linked list is Empty");
+			return;
+		}
+		else {
+			Node temp = head;
+			temp = temp.next;
+			head = temp;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return "CustomLinkedList [head=" + head + "]";
+	}
+	
+	
 }

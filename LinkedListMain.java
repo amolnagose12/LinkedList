@@ -16,6 +16,11 @@ public class LinkedListMain {
 		System.out.println("\nAfter adding the 30");
 		mylist.insert(1, 30);
 		mylist.print();
+		
+		//after deleting 1st element
+		System.out.println("\nAfter deleting 1st element");
+		mylist.deleteFirst();
+		mylist.print();
 	}
 
 }
